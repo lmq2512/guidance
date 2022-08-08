@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Aurora</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -12,7 +12,12 @@
   <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />-->
   <!-- alert 样式 -->
   <link rel="stylesheet" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" type='text/css' media='all' />
-  <link rel="icon" href="/_images/logo.jpg" type="image/x-icon">
+  <link rel="icon" href="../_images/logo.jpg" type="image/x-icon">
+  <style>
+    aside.sidebar{
+      padding: 0px 0px 0px 10px;
+    }
+  </style>
 </head>
 <body>
   <div id="app">请稍后...</div>
@@ -22,6 +27,7 @@
       repo: '',
       loadSidebar:true,
       coverpage:true,
+      onlyCover:true,
       loadNavbar:true,
       //subMaxLevel: 2,
       loadFooter:true,
