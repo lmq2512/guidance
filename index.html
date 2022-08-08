@@ -7,19 +7,62 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/buble.css">
+  <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
+  <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />-->
+  <!-- alert 样式 -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" type='text/css' media='all' />
   <link rel="icon" href="/_images/logo.jpg" type="image/x-icon">
 </head>
 <body>
-  <div id="app">Please wait ...</div>
+  <div id="app">请稍后...</div>
   <script>
     window.$docsify = {
-      name: '',
+      name: '软件使用指南',
       repo: '',
       loadSidebar:true,
       coverpage:true,
       loadNavbar:true,
+      //subMaxLevel: 2,
+      loadFooter:true,
+      loadFooter:'_footer.md',
+      search:{
+        maxAge: 86400000,
+        noData:{
+          '/':'没有结果！'
+        },
+        paths:'auto',
+        placeholder:{
+          '/':'🔍 搜索'
+        }
+      },
+      //目录导航
+      toc:{
+        scope:'.markdown-section',
+        headings:'h1,h2',
+        title:'',
+      },
+
+      //分页导航配置
+      pagination: {
+            previousText: '上一篇',
+            nextText: '下一篇',
+            crossChapter: true,
+            crossChapterText: true,
+        } 
     }
+   //实现离线化
+    if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+      }
+      
+    //复制提醒
+    document.body.oncopy = function () {
+    swal("复制成功!"); 
+    };
+
   </script>
+
    <!-- docsify的js依赖 -->
    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
    <!-- emoji表情支持 -->
@@ -30,6 +73,22 @@
    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
    <!--在所有的代码块上添加一个简单的Click to copy按钮来允许用户从你的文档中轻易地复制代码-->
    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+   <!--分页导航-->
    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+   <!--侧边栏-->
+   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+   <!-- 目录跳转-->
+   <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
+   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+   <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
+   </script>
+   <!--页脚-->
+   <script src="//cdn.jsdelivr.net/npm/@alertbox/docsify-footer/dist/docsify-footer.min.js"></script>
+   <!-- mouse click -->
+   <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
+   <!-- 复制提醒 -->
+   <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+
 </body>
 </html>
