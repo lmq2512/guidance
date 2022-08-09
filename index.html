@@ -7,6 +7,7 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/buble.css">
+
   <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" />
   <!--<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />-->
@@ -25,12 +26,14 @@
     window.$docsify = {
       name: '软件使用指南',
       repo: '',
-      loadSidebar:true,
-      coverpage:true,
-      onlyCover:true,
-      loadNavbar:true,
+      loadNavbar: true,
+      loadSidebar: true,
+      coverpage: true,
+      onlyCover: true,
       //subMaxLevel: 2,
-      loadFooter:true,
+      auto2top: true,
+      mergeNavbar: true,
+      loadFooter: true,
       loadFooter:'_footer.md',
       search:{
         maxAge: 86400000,
@@ -48,6 +51,14 @@
         headings:'h1,h2',
         title:'',
       },
+      //返回顶部
+      scrollToTop: {
+       auto: true,
+       text: '🔼',
+       right: 12,  //按钮距离窗口右侧距离
+       bottom: 52, //按钮距离窗口底部距离
+       offset: 25  //页面滚动多少距离后显示按钮，当auto配置为true时才有效果
+     },
 
       //分页导航配置
       pagination: {
@@ -64,13 +75,16 @@
       
     //复制提醒
     document.body.oncopy = function () {
-    swal("复制成功!"); 
+    swal("复制成功 ",
+         "若要转载或引用请务必保留原文链接，并申明来源。",
+         "success"); 
     };
 
   </script>
 
    <!-- docsify的js依赖 -->
    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+   
    <!-- emoji表情支持 -->
    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
    <!-- 图片放大缩小支持 -->
@@ -95,6 +109,8 @@
    <script src="//cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/js/click_heart.js"></script>
    <!-- 复制提醒 -->
    <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+   <!-- 回到顶部功能 -->
+   <script src="//unpkg.com/docsify-scroll-to-top/dist/docsify-scroll-to-top.min.js"></script>
 
 </body>
 </html>

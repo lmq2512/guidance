@@ -1,2 +1,2 @@
 <!--导航栏-->
-* [公司官网](https://www.auroraiiot.com/)
+* [关于我们](https://www.auroraiiot.com/)
